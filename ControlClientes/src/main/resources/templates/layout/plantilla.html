@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Plantilla</title>
+</head>
+<body>
+	<header th:fragment="header">
+
+		<h1>[[#{plantilla.titulo}]]</h1>
+
+	</header>
+
+	<footer th:fragment="footer">
+
+		<div>
+
+			<br /> <a th:href="@{/(lang=es)}">ES</a> | <a
+				th:href="@{/(lang=en)}">EN</a> | <a th:href="@{/(lang=pt)}">PT</a> |
+			[[#{plantilla.pie-pagina}]]<a href="https://github.com/Agslz"
+				target="_blank"> Agustin Schulze</a>
+
+			<form method="POST" th:action="@{/logout}">
+
+				<b>User:</b> <span sec:authentication="name">Usuario que hizo LogIn</span> |
+				<b>Roles:</b> <span sec:authentication="principal.authorities">Roles del usuario que hizo LogIn</span> |
+				
+				<a href="#" onclick="this.parentNode.submit()">[[#{accion.log-out}]]</a>
+
+			</form>
+		</div>
+	</footer>
+</body>
+</html>
