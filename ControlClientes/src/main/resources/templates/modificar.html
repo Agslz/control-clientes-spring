@@ -5,29 +5,17 @@
 <head>
 <title>[[#{accion.lista}]]</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet"
+	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}" />
+<script th:src="@{webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{webjars/bootstrap/js/bootstrap.min.js}"></script>
+
 </head>
 <body>
 	<header th:replace="layout/plantilla :: header"> </header>
-	<h1>[[#{persona.formulario}]]</h1>
-	<a th:href="@{/}">[[#{accion.regresar}]]</a>
-	<br />
-	<form th:action="@{/guardar}" method="post" th:object="${persona}">
-		<input type="hidden" name="idPersona" th:field="*{idPersona}"></input>
-		<br /> <label for="nombre">[[#{persona.nombre}]]:</label> <input
-			type="text" name="nombre" th:field="*{nombre}" /> <span
-			th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Error
-			en el nombre</span> <br /> <label for="apellido">[[#{persona.apellido}]]:</label>
-		<input type="text" name="apellido" th:field="*{apellido}" /> <span
-			th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}">Error
-			en el apellido</span> <br /> <label for="email">[[#{persona.email}]]:</label>
-		<input type="text" name="email" th:field="*{email}" /> <span
-			th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Error
-			en el mail</span> <br /> <label for="telefono">[[#{persona.telefono}]]:</label>
-		<input type="tel" name="telefono" th:field="*{telefono}" /> <span
-			th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}">Error
-			en el telefono</span> <br /> <input type="submit" name="guardar"
-			th:value="#{accion.guardar}" />
-	</form>
+	<section th:replace="layout/editarCliente :: editarCliente"></section>
 	<footer th:replace="layout/plantilla :: footer"> </footer>
 </body>
 </html>

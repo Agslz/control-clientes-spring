@@ -26,8 +26,14 @@ public class ControladorInicio {
 	public String inicio(Model model, @AuthenticationPrincipal User user) {
 		var personas = personaService.listarPersonas();
 		log.info("Ejecutando el ControladorInicio");
-		log.info("El usuario que se logeo es: " +user);
+		log.info("El usuario que se logeo es: " + user);
 		model.addAttribute("personas", personas);
+		var saldoTotal = 0D;
+		for (var p : personas) {
+			saldoTotal += p.getSaldo();
+		}
+		model.addAttribute("saldoTotal", saldoTotal);
+		model.addAttribute("totalClientes", personas.size());
 		return "index";
 	}
 
@@ -38,11 +44,11 @@ public class ControladorInicio {
 
 	@PostMapping("/guardar")
 	public String guardar(@Valid Persona persona, Errors errores) {
-		
-		if(errores.hasErrors()) {
+
+		if (errores.hasErrors()) {
 			return "modificar";
 		}
-		
+
 		personaService.guardar(persona);
 		return "redirect:/";
 	}
@@ -53,7 +59,7 @@ public class ControladorInicio {
 		model.addAttribute("persona", persona);
 		return "modificar";
 	}
-	
+
 	@GetMapping("/eliminar/{idPersona}")
 	public String eliminar(Persona persona, Model model) {
 		personaService.eliminar(persona);

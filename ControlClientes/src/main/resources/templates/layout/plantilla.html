@@ -5,31 +5,67 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Plantilla</title>
+<link rel="stylesheet"
+	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}" />
+<script th:src="@{webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{webjars/bootstrap/js/bootstrap.min.js}"></script>
 </head>
 <body>
+
 	<header th:fragment="header">
 
-		<h1>[[#{plantilla.titulo}]]</h1>
-
+		<nav class="navbar navbar-expand-sm navbar-dark bg-dark p-3">
+			<div class="container-fluid">
+				<a th:href="@{/}" class="navbar-brand" th:text="#{plantilla.titulo}">Control
+					Clientes</a>
+				<button class="navbar-toggler" data-toggle="collapse"
+					data-target="#navbarCollapse">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarCollapse">
+					<ul class="navbar-nav">
+						<li class="nav-item pt-1"><a th:href="@{/}"
+							class="nav-link active" th:text="#{barra.titulo}">Inicio</a></li>
+					</ul>
+					<ul sec:authorize="isAuthenticated()"
+						class="navbar-nav ml-auto mr-5">
+						<li class="nav-item "><a href="#" class="nav-link"> <i
+								class="fas fa-user"></i> <span th:text="#{barra.bienvenido}">Bienvenido</span>
+								<span sec:authentication="name">Nombre</span>
+						</a></li>
+						<li class="nav-item">
+							<form method="POST" th:action="@{/logout}">
+								<a href="#" onclick="this.parentNode.submit();" class="nav-link">
+									<i class="fas fa-user-times"></i> [[#{barra.salir}]]
+								</a>
+							</form>
+						</li>
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+							role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"> [[#{accion.idiomas}]] </a>
+							<div class="dropdown-menu bg-dark rounded"
+								aria-labelledby="navbarDropdown">
+								<a class="dropdown-item text-white bg-transparent m-0 p-1 mt-1" th:href="@{/(lang=es)}"><img class="mr-1 mb-1" src="https://img.icons8.com/fluency/32/000000/argentina-circular.png "/>Español</a> 
+								<a class="dropdown-item text-white bg-transparent m-0 p-1 mt-1  " th:href="@{/(lang=en)}"><img class="mr-1 mb-1" src="https://img.icons8.com/fluency/32/000000/usa-circular.png"/> English</a>
+								<a class="dropdown-item text-white bg-transparent m-0 p-1 mt-1 " th:href="@{/(lang=pt)}"> <img class="mr-1 mb-1" src="https://img.icons8.com/fluency/32/000000/brazil-circular.png"/>Portuguese</a>
+							</div>
+							</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
 	</header>
-
-	<footer th:fragment="footer">
-
-		<div>
-
-			<br /> <a th:href="@{/(lang=es)}">ES</a> | <a
-				th:href="@{/(lang=en)}">EN</a> | <a th:href="@{/(lang=pt)}">PT</a> |
-			[[#{plantilla.pie-pagina}]]<a href="https://github.com/Agslz"
-				target="_blank"> Agustin Schulze</a>
-
-			<form method="POST" th:action="@{/logout}">
-
-				<b>User:</b> <span sec:authentication="name">Usuario que hizo LogIn</span> |
-				<b>Roles:</b> <span sec:authentication="principal.authorities">Roles del usuario que hizo LogIn</span> |
-				
-				<a href="#" onclick="this.parentNode.submit()">[[#{accion.log-out}]]</a>
-
-			</form>
+	<footer th:fragment="footer"
+		class="bg-dark text-white p-3 fixed-bottom">
+		<div class="container">
+			<div class="col">
+				<p class="lead text-center">
+					[[#{plantilla.pie-pagina}]] &copy; <a href="https://github.com/Agslz" target="_blank">	Agustin Schulze </a>
+				</p>
+			</div>
 		</div>
 	</footer>
 </body>

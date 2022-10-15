@@ -32,7 +32,7 @@ public class Usuario implements Serializable{
 	private String password;
 	
 	@OneToMany
-	@JoinColumn(name = "id_usario")
+	@JoinColumn(name = "id_usuario")
 	private List<Rol> roles;
 
 }

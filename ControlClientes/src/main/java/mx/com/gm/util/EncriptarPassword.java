@@ -11,7 +11,6 @@ public class EncriptarPassword {
 		System.out.println("Password " + password);
 		System.out.println("Password encriptado " + encriptarPassword(password));
 
-
 	}
 	
 	public static String encriptarPassword(String password) {
