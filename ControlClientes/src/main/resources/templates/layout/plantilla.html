@@ -12,10 +12,8 @@
 <script th:src="@{webjars/popper.js/umd/popper.min.js}"></script>
 <script th:src="@{webjars/bootstrap/js/bootstrap.min.js}"></script>
 </head>
-<body >
-
+<body>
 	<header th:fragment="header">
-
 		<nav class="navbar navbar-expand-sm navbar-dark bg-dark p-3 text-center">
 			<div class="container-fluid">
 				<a th:href="@{/}" class="navbar-brand" th:text="#{plantilla.titulo}">Control
@@ -46,14 +44,13 @@
 							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> [[#{accion.idiomas}]] </a>
-							<div class="dropdown-menu bg-dark rounded"
-								aria-labelledby="navbarDropdown">
-								<a class="dropdown-item text-white bg-transparent m-0 p-1 mt-1" th:href="@{/(lang=es)}"><img class="mr-1 mb-1" src="https://img.icons8.com/fluency/32/000000/argentina-circular.png "/>Español</a> 
-								<a class="dropdown-item text-white bg-transparent m-0 p-1 mt-1  " th:href="@{/(lang=en)}"><img class="mr-1 mb-1" src="https://img.icons8.com/fluency/32/000000/usa-circular.png"/> English</a>
-								<a class="dropdown-item text-white bg-transparent m-0 p-1 mt-1 " th:href="@{/(lang=pt)}"> <img class="mr-1 mb-1" src="https://img.icons8.com/fluency/32/000000/brazil-circular.png"/>Portuguese</a>
-								<a class="dropdown-item text-white bg-transparent m-0 p-1 mt-1 " th:href="@{/(lang=fr)}"> <img class="mr-1 mb-1" src="https://img.icons8.com/fluency/32/000000/france-circular.png"/>Francais</a>
-							</div>
-							</li>
+							<div class="dropdown-menu bg-dark rounded" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item text-white bg-transparent m-2 p-1 mt-1" th:href="@{/(lang=es)}"><img class="mr-1 mb-1" src="https://img.icons8.com/fluency/32/000000/argentina-circular.png "/>Español</a> 
+								<a class="dropdown-item text-white bg-transparent m-2 p-1 mt-1" th:href="@{/(lang=en)}"><img class="mr-1 mb-1" src="https://img.icons8.com/fluency/32/000000/usa-circular.png"/> English</a>
+								<a class="dropdown-item text-white bg-transparent m-2 p-1 mt-1" th:href="@{/(lang=pt)}"> <img class="mr-1 mb-1" src="https://img.icons8.com/fluency/32/000000/brazil-circular.png"/>Portuguese</a>
+								<a class="dropdown-item text-white bg-transparent m-2 p-1 mt-1" th:href="@{/(lang=fr)}"> <img class="mr-1 mb-1" src="https://img.icons8.com/fluency/32/000000/france-circular.png"/>Francais</a>
+						 </div>
+					  </li>
 					</ul>
 				</div>
 			</div>

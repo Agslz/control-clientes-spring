@@ -36,8 +36,7 @@
 									<tr th:each="persona, contador : ${personas}">
 										<td>[[${contador.count}]]</td>
 										<td>[[${persona.nombre} + ' ' + ${persona.apellido}]]</td>
-										<td>[[${new
-											java.text.DecimalFormat('$#,##0.00').format(persona.saldo)}]]</td>
+										<td>[[${new java.text.DecimalFormat('$#,##0.00').format(persona.saldo)}]]</td>
 										<td><a sec:authorize="hasRole('ROLE_ADMIN')"
 											th:href="@{/editar/} + ${persona.idPersona}"
 											class="btn btn-secondary "> [[#{accion.editar}]] </a></td>
