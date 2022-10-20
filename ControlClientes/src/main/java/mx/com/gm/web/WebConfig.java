@@ -24,7 +24,7 @@ public class WebConfig implements WebMvcConfigurer {
 	@Bean
 	public LocaleChangeInterceptor localeChangeInterceptor() {
 		var lci = new LocaleChangeInterceptor();
-		lci.setParamName("lang");
+		lci.setParamName("lang"); 
 		return lci;
 	}
 	
@@ -37,7 +37,6 @@ public class WebConfig implements WebMvcConfigurer {
 	public void addViewControllers(ViewControllerRegistry registro) {
 		registro.addViewController("/").setViewName("index");
 		registro.addViewController("/login");
-		registro.addViewController("/errores/403").setViewName("/errores/403");
 	}
 
 }
