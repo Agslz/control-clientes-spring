@@ -1,4 +1,4 @@
-# control-clientes-spring
+# customer-control-spring
 
 ## Responsive client control project made with spring boot, thymeleaf and many features
 
