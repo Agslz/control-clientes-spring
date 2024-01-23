@@ -18,7 +18,7 @@ Este proyecto es una aplicación de control de clientes desarrollada en Java uti
 - **Gestión de Clientes:** CRUD completo (Crear, Leer, Actualizar, Eliminar) para clientes.
 - **Diseño Responsivo:** La interfaz de usuario es compatible con dispositivos móviles.
 - 
-# Imagenes del Proyecto
+## Imagenes del Proyecto
 
 ![Screnshot1](https://user-images.githubusercontent.com/83142033/211349708-2e7e0950-d510-4f01-bbf3-223b38e5ee91.png)
 
